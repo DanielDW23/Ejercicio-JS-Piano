@@ -1,4 +1,4 @@
-# Ejercicio-JS-Piano
+# Ejercicio-JS-Piano 🎹
 
 ### Ejercicio con HTML, CSS y JavaScript para realizar un teclado de piano, en el cual suena la nota correspondiente tanto al pulsar la tecla del teclado asociada a cada nota como al pulsar con el ratón en el teclado. En este ejercicio he practicado principalmente el acceso al DOM y los eventos
 
