@@ -52,7 +52,7 @@ function musica2(event) {
     // console.log(event)
     for (let i = 0; i < teclas.length; i++) {
         const tecla = teclas[i];
-        console.log(event.target.className)
+        // console.log(event.target.className)
         if (event.target.className === `blanca ${tecla.clase}` || event.target.className === `negra ${tecla.clase}`) {
             const elementoTecla = document.querySelector("." + tecla.clase);
             // console.log(elementoTecla)
