@@ -20,11 +20,13 @@ document.addEventListener("keydown",musica);
 document.addEventListener("click",musica2);
 document.addEventListener("keyup", detenerSonido);
 
+let etiquetaAudio = document.createElement("audio");
+
 function tocar(sonido) {
-    etiquetaAudio = document.createElement("audio");
-    etiquetaAudio.setAttribute("src", sonido)
-    etiquetaAudio.play()
-    sonidoReproduciendose = true;
+  etiquetaAudio.pause();
+  etiquetaAudio.src = sonido;
+  etiquetaAudio.play().catch((err) => console.error(err));
+  sonidoReproduciendose = true;
 }
 
 function detenerSonido(event) {
@@ -34,27 +36,26 @@ function detenerSonido(event) {
 function musica(event) {
     for (let i = 0; i < teclas.length; i++) {
         const tecla = teclas[i];
-        if (event.key === tecla.teclaPulsada && !sonidoReproduciendose) {
+        if (event.key.toLowerCase() === tecla.teclaPulsada && !sonidoReproduciendose) {
             const elementoTecla = document.querySelector("." + tecla.clase);
-            console.log(elementoTecla)
+            // console.log(elementoTecla)
             tocar(tecla.sonido);
             elementoTecla.style.backgroundColor = "#aaa";
             setTimeout(() => {
                 elementoTecla.style.backgroundColor = tecla.color;
             }, 200);
-            elementoTecla.appendChild(etiquetaAudio);
         }
     }
 }
 
 function musica2(event) {
-    console.log(event)
+    // console.log(event)
     for (let i = 0; i < teclas.length; i++) {
         const tecla = teclas[i];
         console.log(event.target.className)
         if (event.target.className === `blanca ${tecla.clase}` || event.target.className === `negra ${tecla.clase}`) {
             const elementoTecla = document.querySelector("." + tecla.clase);
-            console.log(elementoTecla)
+            // console.log(elementoTecla)
             tocar(tecla.sonido);
             elementoTecla.style.backgroundColor = "#aaa";
             setTimeout(() => {
